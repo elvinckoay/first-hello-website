@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Counter</title>
+  <style>
+    /* Some basic styling for the input and output elements */
+    input, p {
+      margin: 10px;
+      padding: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="textInput" placeholder="Enter your text here" oninput="countWords()">
+  <p>Word count: <span id="wordCount">0</span></p>
+
+  <script>
+    function countWords() {
+      // Get the input value and split it into words using a regular expression
+      var inputText = document.getElementById('textInput').value;
+      var words = inputText.match(/\w+/g);
+
+      // Update the word count
+      var wordCount = 0;
+      if (words != null) {
+        wordCount = words.length;
+      }
+
+      // Display the word count
+      document.getElementById('wordCount').textContent = wordCount;
+    }
+  </script>
+</body>
+</html>
